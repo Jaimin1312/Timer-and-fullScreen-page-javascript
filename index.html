@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+<script type="text/javascript" src="jquery.countdownTimer.min.js"></script>
+<link rel="stylesheet" type="text/css" href="jquery.countdownTimer.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script>
+
+function openFullscreen() {
+	
+  var elem = document.documentElement;
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</script>
+
+<style>
+/* Chrome, Safari and Opera syntax */
+:-webkit-full-screen {
+  background-color: yellow;
+}
+
+/* Firefox syntax */
+:-moz-full-screen {
+  background-color: yellow;
+}
+
+/* IE/Edge syntax */
+:-ms-fullscreen {
+  background-color: yellow;
+}
+
+/* Standard syntax */
+:fullscreen {
+  background-color: yellow;
+}
+
+/* Style the button */
+button {
+  padding: 20px;
+  font-size: 20px;
+}
+</style>
+
+
+
+</head>
+<body oncopy="return false" oncut="return false" onpaste="return false">
+
+<h2>Fullscreen with JavaScript</h2>
+<p>Click on the "Open Fullscreen" button to open this page in fullscreen mode. Close it by either clicking the "Esc" key on your keyboard, or with the "Close Fullscreen" button.</p>
+
+<button onclick="openFullscreen();">Open Fullscreen</button>
+
+<textarea name="df" cols="30" rows="6" style="resize: none"></textarea>
+
+<p>Note: Internet Explorer 10 and earlier does not support the msRequestFullscreen() method.</p>
+
+<br>
+
+<div class="row">
+    <div class="col-md-2">
+      <div id="future_date"></div>
+    </div>
+</div>
+
+
+
+ <script type="text/javascript">
+ 	$(document).ready(function(){
+ 		jQuery(document).on('copy', function(e){ alert('warning!! copy (ctrl + c) detected') });
+ 		jQuery(document).on('cut', function(e){ alert('warning!! cut (ctrl + x) detected') });
+ 		jQuery(document).on('paste', function(e){ alert('warning!! pasting (ctrl + v) detected') });
+ 		
+    
+   $(document).bind("contextmenu",function(e){
+   		alert('warning!! You can not use right click');
+      return false;
+   });
+
+});
+
+  $(function(){
+      $("#future_date").countdowntimer({
+                hours:1,                             // Set hours.
+                minutes:0,                        // Set minutes.
+                seconds:0,
+                size : "lg"
+      });
+    });
+
+
+ 
+
+
+                  
+   </script>
+
+
+</body>
+</html>
+
